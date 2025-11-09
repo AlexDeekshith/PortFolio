@@ -10,13 +10,16 @@
 <body>
     <header>
         <a href="#" class="logo">Alex</a>
-        <nav>
+        <div class="menu-icon" id="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav id="navbar">
             <a href="#" class="active">Home</a>
-            <a href="#">About</a>
-            <a href="#">Skills</a>
-            <a href="#">Services</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#services">Services</a>
             <a href="#">Projects</a>
-            <a href="#">Contact</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
     <!-- home Section Start -->
@@ -43,6 +46,23 @@
         strings: ["Web Developer", "AI Engineer", "Game Developer", "FreeLancer","Full-Stack Developer","Software Developer"],
         loop: true,
         typeSpeed: 30,
+      });
+      
+      // Mobile menu toggle
+      const menuIcon = document.getElementById('menu-icon');
+      const navbar = document.getElementById('navbar');
+      
+      menuIcon.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        menuIcon.classList.toggle('active');
+      });
+      
+      // Close menu when clicking on nav links
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          navbar.classList.remove('active');
+          menuIcon.classList.remove('active');
+        });
       });
     </script>
     <!-- About Section Start -->
